@@ -1,0 +1,22 @@
+{
+  "name": "gulu-demo",
+  "version": "1.0.0",
+  "description": "vue轮子",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiyang123/gulu-demo.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "caiyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caiyang123/gulu-demo/issues"
+  },
+  "homepage": "https://github.com/caiyang123/gulu-demo#readme"
+}
