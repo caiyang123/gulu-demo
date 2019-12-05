@@ -1,6 +1,6 @@
 <template>
     <button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
-        <svg class="icon" v-if="icon"><use :xlink:href="`#icon-${icon}`"></use></svg>
+        <g-icon :name="icon" v-if="icon" class="icon"></g-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -43,12 +43,6 @@
         vertical-align: middle;
         padding: 0 .7em;
 
-        > .icon {
-            width: 1em;
-            height: 1em;
-            margin-top: 2px;
-        }
-
         &:hover {
             border-color: var(--border-color-hover);
         }
@@ -64,6 +58,7 @@
         > .icon {
             order: 1;
             margin-right: .3em;
+            margin-top: 2px;
         }
 
         > .content {
