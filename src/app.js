@@ -23,3 +23,70 @@ new Vue({
         }
     }
 });
+
+import chai from 'chai';
+const expect = chai.expect;
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'set'
+        }
+    });
+    vm.$mount();
+    const useElement = vm.$el.querySelector('use');
+    const href = useElement.getAttribute('xlink:href');
+    expect(href).to.equal('#icon-set');
+    vm.$el.remove();
+    vm.$destroy();
+}
+
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'set',
+            loading: true
+        }
+    });
+    vm.$mount();
+    const useElement = vm.$el.querySelector('use');
+    const href = useElement.getAttribute('xlink:href');
+    expect(href).to.equal('#icon-loading');
+    vm.$el.remove();
+    vm.$destroy();
+}
+
+{
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'set',
+            iconPosition: 'right'
+        }
+    });
+    vm.$mount(div);
+    const svg = vm.$el.querySelector('svg');
+    const { order } = window.getComputedStyle(svg);
+    expect(order).to.equal('2');
+    vm.$el.remove();
+    vm.$destroy();
+}
+
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'set'
+        }
+    });
+    vm.$mount();
+    vm.$on('click', function() {
+        console.log('button clicked');
+    });
+    vm.$el.click();
+    vm.$el.remove();
+    vm.$destroy();
+}
