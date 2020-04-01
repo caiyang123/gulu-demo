@@ -1,9 +1,9 @@
 <template>
     <div
-        :class="['col', span && 'col-' + span, offset &&'offset-' + offset]"
+        :class="['col', span && 'col-' + span, offset && 'offset-' + offset]"
         :style="{paddingLeft: this.gutter / 2 + 'px', paddingRight: this.gutter / 2 + 'px'}"
     >
-        <div style="border: 1px solid green; height: 100px"><slot></slot></div>
+        <slot></slot>
     </div>
 </template>
 
