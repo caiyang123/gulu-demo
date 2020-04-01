@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'g-button-group'
+        name: 'GuluButtonGroup'
     }
 </script>
 
