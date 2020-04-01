@@ -1,8 +1,5 @@
 <template>
-    <div
-        :class="['col', span && 'col-' + span, offset && 'offset-' + offset]"
-        :style="{paddingLeft: this.gutter / 2 + 'px', paddingRight: this.gutter / 2 + 'px'}"
-    >
+    <div class="col" :class="colClass" :style="colStyle">
         <slot></slot>
     </div>
 </template>
@@ -22,6 +19,21 @@
             return {
                 gutter: 0
             }
+        },
+        computed: {
+            colStyle() {
+                return {
+                    paddingLeft: this.gutter / 2 + 'px', 
+                    paddingRight: this.gutter / 2 + 'px'
+                }
+            },
+            colClass() {
+                const { span, offset } = this; 
+                return [ 
+                    span && 'col-' + span,
+                    offset && 'offset-' + offset
+                ]
+            }
         }
     }
 </script>
@@ -30,7 +42,6 @@
     .col {
         height: 100px;
         width: 50%;
-        background-color: grey;
 
         &:first-child {
             padding-left: 0 !important;
