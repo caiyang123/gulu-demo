@@ -16,5 +16,10 @@ new Vue({
         loading1: false,
         loading2: false,
         loading3: false
+    },
+    methods: {
+        handleChange(e) {
+            console.log('handleChange', e.target.value);
+        }
     }
 });
