@@ -6,7 +6,16 @@
 
 <script>
     export default {
-        
+        props: {
+            gutter: {
+                type: [Number, String]
+            }
+        },
+        mounted() {
+            this.$children.forEach((child, index) => {
+                child.gutter = this.gutter;
+            })
+        }
     }
 </script>
 
