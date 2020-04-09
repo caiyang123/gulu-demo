@@ -4,6 +4,7 @@
   "description": "vue轮子",
   "main": "index.js",
   "scripts": {
+    "start": "parcel index.html",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
   "repository": {
