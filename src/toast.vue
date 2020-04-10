@@ -25,13 +25,7 @@
                 default: 5
             },
             closeButton: {
-                type: Object,
-                default() {
-                    return {
-                        text: '关闭',
-                        callback: undefined
-                    }
-                }
+                type: Object
             },
             enableHtml: {
                 type: Boolean,
@@ -39,9 +33,11 @@
             }
         },
         mounted() {
-            setTimeout(() => {
-                this.close();
-            }, this.autoCloseDelay * 1000);
+            if (autoClose && !this.closeButton) {
+                setTimeout(() => {
+                    this.close();
+                }, this.autoCloseDelay * 1000);
+            }
         },
         methods: {
             close() {
