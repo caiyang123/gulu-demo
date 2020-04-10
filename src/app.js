@@ -45,7 +45,16 @@ new Vue({
             console.log('handleChange', e.target.value);
         },
         showToast() {
-            this.$toast('我是toast');
+            this.$toast('<strong>我是toast</strong>我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast我是toast', {
+                closeButton: {
+                    text: '知道了',
+                    callback(toast) {
+                        toast.log();
+                        console.log('用户说他知道了');
+                    }
+                },
+                enableHtml: true
+            });
         }
     }
 });
