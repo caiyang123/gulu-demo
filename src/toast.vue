@@ -77,6 +77,26 @@ export default {
     opacity: 1;
   }
 }
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 $font-size: 14px;
 $min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
@@ -86,17 +106,25 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   transform: translateX(-50%);
   &.position-top {
     top: 0;
+    .toast {
+        animation: slide-down 1s;
+    }
   }
   &.position-bottom {
     bottom: 0;
+    .toast {
+        animation: slide-up 1s;
+    }
   }
   &.position-middle {
     top: 50%;
     transform: translate(-50%, -50%);
+    .toast {
+        animation: fade-in 1s;
+    }
   }
 }
 .toast {
-  animation: fade-in 1s;
   font-size: $font-size;
   line-height: 1.8;
   min-height: $min-height;
