@@ -54,6 +54,7 @@
         methods: {
             close() {
                 this.$el.remove();
+                this.$emit('close');
                 this.$destroy();
             },
             handleClose() {
@@ -68,10 +69,19 @@
 </script>
 
 <style lang="scss" scoped>
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
     $font-size: 14px;
     $min-height: 40px;
     $toast-bg: rgba(0, 0, 0, .75);
     .toast {
+        animation: fade-in 1s;
         position: fixed;
         left: 50%;
         transform: translateX(-50%);

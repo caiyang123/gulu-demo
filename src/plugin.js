@@ -18,6 +18,7 @@ function createToast(Vue, message, toastOptions) {
         propsData: {message, ...toastOptions}
     });
     toast.$mount();
+    toast.$on('close', () => currentToast = null);
     document.body.appendChild(toast.$el);
     return toast;
 }
